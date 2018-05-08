@@ -37,8 +37,8 @@ public class MapWidget extends SimpleAnnotatedWidget {
 	int y, x;
 	
 	public void setCirclePosition(double x, double y) {
-		this.y = (int)((y * 119.0) / 161.5) -119;
-		this.x = (int)((x*217.0) / 648) - 217;
+		this.y = -(int)((y * 119.0) / 161.5) + 119;
+		this.x = (int)((x*434.0) / 648);
 	}
 	public Pane getView() {
 		final double data[] = (double[])(getData());
@@ -47,7 +47,10 @@ public class MapWidget extends SimpleAnnotatedWidget {
 				setCirclePosition(data[0], data[1]);
 			}
 		}
-		Image image = new Image("http://c1.staticflickr.com/1/894/41310108272_a65ef8bd62.jpg");
+		else {
+			setCirclePosition(0.0 ,0.0);
+		}
+		Image image = new Image("file:///C:/Users/ligerbots/map.jpg");
 		ImageView view = new ImageView();
 		view.setImage(image);
 		Pane root = new Pane();
